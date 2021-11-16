@@ -125,22 +125,3 @@ ylabel('var consistency checking')
 
 %%
 xlabel('Epoch') 
-
-
-
-
-% subplot(5,1,2)
-
-% subplot(5,1,3)
-% 
-% subplot(5,1,4)
-
-% subplot(5,1,5)
-
-
-%                     GNSS_data{idt,14}(idm,2),...%Pr_Error
-%                     GNSS_data{idt,16}(1),...%Error_east
-%                     GNSS_data{idt,16}(2),...%Error_north
-%                     GNSS_data{idt,16}(3),...%Error_up
-
-% GNSS_data{idt,3}(idm),...%PRN

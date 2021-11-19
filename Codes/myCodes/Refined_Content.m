@@ -19,18 +19,19 @@ for idt = 1: size(GNSS_data,1)  %number of epoches
     Refined_data {idt,5} = mean(GNSS_data{idt,4}); % mean elevation angle
     Refined_data {idt,6} = var(GNSS_data{idt,4}); % variance elevation angle
     
-    Refined_data {idt,7} = mean(GNSS_data{idt,9}(:,4),'all'); % C/N0end
+    Refined_data {idt,7} = mean(GNSS_data{idt,9}(:,4)); % mean C/N0
+    Refined_data {idt,8} = mean(GNSS_data{idt,9}(:,4)); % var C/N0
     
-    Refined_data {idt,8} = mean(GNSS_data{idt,9}(:,9),'all'); % Pr residual RSS_e
-    Refined_data {idt,9} = mean(GNSS_data{idt,9}(:,6),'all'); % mean Pr residual
-    Refined_data {idt,10} = var(GNSS_data{idt,9}(:,6)); % variance Pr residual
+    Refined_data {idt,9} = mean(GNSS_data{idt,9}(:,9)); % Pr residual RSS_e
+    Refined_data {idt,10} = mean(GNSS_data{idt,9}(:,6)); % mean Pr residual
+    Refined_data {idt,11} = var(GNSS_data{idt,9}(:,6)); % variance Pr residual
     
     if size(Pr_rate{idt,1},2)~=0
-        Refined_data {idt,11} = mean (Pr_rate{idt,1}(:,3));   % mean Pr rate consistency
-        Refined_data {idt,12} = var(Pr_rate{idt,1}(:,3));       %variance Pr rate consistency
+        Refined_data {idt,12} = mean (Pr_rate{idt,1}(:,3));   % mean Pr rate consistency
+        Refined_data {idt,13} = var(Pr_rate{idt,1}(:,3));       %variance Pr rate consistency
     else
-        Refined_data {idt,11} = 0;
         Refined_data {idt,12} = 0;
+        Refined_data {idt,13} = 0;
     end
 end
 
@@ -38,8 +39,8 @@ end
 idt2Delete = [];
 for idt = 1: size(GNSS_data,1)  %number of epoches
     if (size(Refined_data {idt,3},1)==0) ||(size(Refined_data {idt,4},1)==0)|| ...
-        (Refined_data {idt,11} ==0) || (Refined_data {idt,11} ==9999)||....
-        (Refined_data {idt,12} ==0)
+        (Refined_data {idt,12} ==0) || (Refined_data {idt,12} ==9999)||....
+        (Refined_data {idt,13} ==0)
         idt2Delete = [idt2Delete,idt];
     end
 
@@ -47,9 +48,11 @@ end
 Refined_data(idt2Delete,:)=[]; % To delete the invalid sample data
 %% Final Refinement
 Truth_value(:,1) = sqrt(cell2mat(Refined_data (:,3)).^2 + cell2mat(Refined_data (:,4)).^2 ); % truth value for positioing error
+
 Refined_data_FinalV = Refined_data;
 Refined_data_FinalV(:,3)=[];
 Refined_data_FinalV(:,3)=[];
+
 
 %% First Plot 
 if whetherToPlot == 1
@@ -138,20 +141,3 @@ if whetherToPlot == 1
     xlabel('Epoch') 
 end
 
-
-
-% subplot(5,1,2)
-
-% subplot(5,1,3)
-% 
-% subplot(5,1,4)
-
-% subplot(5,1,5)
-
-
-%                     GNSS_data{idt,14}(idm,2),...%Pr_Error
-%                     GNSS_data{idt,16}(1),...%Error_east
-%                     GNSS_data{idt,16}(2),...%Error_north
-%                     GNSS_data{idt,16}(3),...%Error_up
-
-% GNSS_data{idt,3}(idm),...%PRN

@@ -40,4 +40,4 @@
 
 
 # Truth_value (type: mat)
-1. sqrt(EPV.^2+EPH.^2)
+sqrt(EPV.^2+EPH.^2)

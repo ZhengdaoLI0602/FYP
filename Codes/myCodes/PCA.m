@@ -1,6 +1,6 @@
 %%
 % Co-drafted by Pin Hsun LEE, Zhengdao LI
-% Updated by Zhengdao LI on 2021.11.17
+% Updated by Zhengdao LI on 2021.11.19
 %%
 clear pca_data coeff score latent
 

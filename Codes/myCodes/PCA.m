@@ -4,8 +4,8 @@
 %%
 clear pca_data coeff score latent
 
-% Refined_data_FinalV = cell2mat(Refined_data_FinalV);
-pca_data = cell2mat(Refined_data_FinalV(:,2:size(Refined_data_FinalV,2)));
+% Features only
+pca_data = cell2mat(Refined_data_FinalV(:,2:size(Refined_data_FinalV,2))); 
 
 % Normalize the data for PCA
 for i=1:size(pca_data,2)

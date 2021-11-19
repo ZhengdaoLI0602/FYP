@@ -54,9 +54,8 @@ Refined_data_FinalV(:,3)=[];
 Refined_data_FinalV(:,3)=[];
 
 
-
+%% First Plot 
 if whetherToPlot == 1
-    %% First Plot 
     figure;
     subplot(3,1,1)
     y0 = cell2mat(Refined_data (:,2));
@@ -99,7 +98,7 @@ if whetherToPlot == 1
     plot(y5,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y5)])
-    ylabel('mean C/N0') 
+    ylabel('C/N0') 
     %% Third Plot
     figure;
     subplot(3,1,1)
@@ -107,21 +106,21 @@ if whetherToPlot == 1
     plot(y3,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y3)])
-    ylabel('var C/N0') 
+    ylabel('Pr residual RSS_e') 
     %%
     subplot(3,1,2)
     y4 = cell2mat(Refined_data (:,9));
     plot(y4,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y4)])
-    ylabel('Pr residual RSS_e') 
+    ylabel('mean Pr residual') 
     %%
     subplot(3,1,3)
     y5 = cell2mat(Refined_data (:,10));
     plot(y5,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y5)])
-    ylabel('mean Pr residual') 
+    ylabel('var Pr residual') 
     %% Fourth Plot
     figure;
     subplot(3,1,1)
@@ -129,17 +128,10 @@ if whetherToPlot == 1
     plot(y3,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y3)])
-    ylabel('var Pr residual') 
-    %%
-    subplot(3,1,2)
-    y3 = cell2mat(Refined_data (:,12));
-    plot(y3,'b')
-    xlim([0 1.2*size(Refined_data,1)])
-    ylim([0 1.2*max(y3)])
     ylabel('mean consistency checking') 
     %%
-    subplot(3,1,3)
-    y4 = cell2mat(Refined_data (:,13));
+    subplot(3,1,2)
+    y4 = cell2mat(Refined_data (:,12));
     plot(y4,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y4)])
@@ -148,5 +140,4 @@ if whetherToPlot == 1
     %%
     xlabel('Epoch') 
 end
-
 

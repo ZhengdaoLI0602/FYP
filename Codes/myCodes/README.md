@@ -1,4 +1,4 @@
-# Refined_content_FinalV (type: cell)
+# Refined_data (type: cell)
 1. nbr of epoch
 2. nbr of SV
 3. EPV
@@ -13,6 +13,18 @@
 12. mean Pr rate consistency
 13. var Pr rate consistency
 
+# Refined_data_FinalV (type: cell)
+1. nbr of epoch
+2. nbr of SV
+3. mean elevation angles
+4. var elevation angles
+5. mean C/N0
+6. var C/N0
+7. Pr residual RSS_e (root sum of squares)
+8. mean Pr Residual 
+9. var Pr Residual
+10. mean Pr rate consistency
+11. var Pr rate consistency
 
 # pca_data (type: mat; features only)
 1. nbr of SV

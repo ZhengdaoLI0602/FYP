@@ -1,13 +1,13 @@
-clear Refined_data
+clear Refined_data Truth_value
 %%
 % Co-drafted by Zhengdao LI, Pin Hsun LEE
-% Updated by Zhengdao LI on 2021.11.17
+% Updated by Zhengdao LI on 2021.11.19
 %%
 
 % Refined_data_FinalV: contains all the feature values
 % Refined_data: contains both features and truth values before refinement
 
-whetherToPlot = 0;
+whetherToPlot = 1;
 %%
 for idt = 1: size(GNSS_data,1)  %number of epoches
     Refined_data {idt,1} = GNSS_data{idt,1};   %index of epoch##
@@ -54,8 +54,9 @@ Refined_data_FinalV(:,3)=[];
 Refined_data_FinalV(:,3)=[];
 
 
-%% First Plot 
+
 if whetherToPlot == 1
+    %% First Plot 
     figure;
     subplot(3,1,1)
     y0 = cell2mat(Refined_data (:,2));
@@ -98,7 +99,7 @@ if whetherToPlot == 1
     plot(y5,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y5)])
-    ylabel('C/N0') 
+    ylabel('mean C/N0') 
     %% Third Plot
     figure;
     subplot(3,1,1)
@@ -106,21 +107,21 @@ if whetherToPlot == 1
     plot(y3,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y3)])
-    ylabel('Pr residual RSS_e') 
+    ylabel('var C/N0') 
     %%
     subplot(3,1,2)
     y4 = cell2mat(Refined_data (:,9));
     plot(y4,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y4)])
-    ylabel('mean Pr residual') 
+    ylabel('Pr residual RSS_e') 
     %%
     subplot(3,1,3)
     y5 = cell2mat(Refined_data (:,10));
     plot(y5,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y5)])
-    ylabel('var Pr residual') 
+    ylabel('mean Pr residual') 
     %% Fourth Plot
     figure;
     subplot(3,1,1)
@@ -128,10 +129,17 @@ if whetherToPlot == 1
     plot(y3,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y3)])
-    ylabel('mean consistency checking') 
+    ylabel('var Pr residual') 
     %%
     subplot(3,1,2)
-    y4 = cell2mat(Refined_data (:,12));
+    y3 = cell2mat(Refined_data (:,12));
+    plot(y3,'b')
+    xlim([0 1.2*size(Refined_data,1)])
+    ylim([0 1.2*max(y3)])
+    ylabel('mean consistency checking') 
+    %%
+    subplot(3,1,3)
+    y4 = cell2mat(Refined_data (:,13));
     plot(y4,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y4)])
@@ -140,4 +148,5 @@ if whetherToPlot == 1
     %%
     xlabel('Epoch') 
 end
+
 

@@ -1,4 +1,4 @@
-clear Refined_data Truth_value
+clear Refined_data Truth_value Refined_data_FinalV
 %%
 % Co-drafted by Zhengdao LI, Pin Hsun LEE
 % Updated by Zhengdao LI on 2021.11.19

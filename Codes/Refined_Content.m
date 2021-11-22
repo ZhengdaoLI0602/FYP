@@ -20,7 +20,7 @@ for idt = 1: size(GNSS_data,1)  %number of epoches
     Refined_data {idt,6} = var(GNSS_data{idt,4}); % variance elevation angle
     
     Refined_data {idt,7} = mean(GNSS_data{idt,9}(:,4)); % mean C/N0
-    Refined_data {idt,8} = mean(GNSS_data{idt,9}(:,4)); % var C/N0
+    Refined_data {idt,8} = var(GNSS_data{idt,9}(:,4)); % var C/N0
     
     Refined_data {idt,9} = mean(GNSS_data{idt,9}(:,9)); % Pr residual RSS_e
     Refined_data {idt,10} = mean(GNSS_data{idt,9}(:,6)); % mean Pr residual

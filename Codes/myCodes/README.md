@@ -32,7 +32,7 @@
 sqrt(EPV.^2+EPH.^2)
 
 # pca_data
-1. (# recived SV) / (total # SV)
+1. (# received SV) / (total # SV)
 2. mean elevation angle
 3. std elevation angle
 4. mean C/N0

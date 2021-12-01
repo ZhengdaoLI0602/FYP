@@ -26,18 +26,28 @@
 10. mean Pr rate consistency
 11. var Pr rate consistency
 
-# pca_data (type: mat; features only)
-1. nbr of SV
-2. mean elevation angles
-3. var elevation angles
-4. mean C/N0
-5. var C/N0
-6. Pr residual RSS_e (root sum of squares)
-7. mean Pr Residual 
-8. var Pr Residual
-9. mean Pr rate consistency
-10. var Pr rate consistency
 
 
-# Truth_value (type: mat)
+# truth_value (type: mat)
 sqrt(EPV.^2+EPH.^2)
+
+# pca_data
+1. (# recived SV) / (total # SV)
+2. mean elevation angle
+3. std elevation angle
+4. mean C/N0
+5. std C/N0
+6. Pr residual RSS_e
+7. mean Pr residual 
+8. std Pr residual 
+9. mean Pr rate consistency
+10. std Pr rate consistency
+
+
+
+
+
+
+
+
+

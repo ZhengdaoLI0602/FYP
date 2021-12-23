@@ -6,7 +6,7 @@ clear coeff score latent truth_data pca_data
 whetherToPlot = 1;
 whetherToCSV = 1;
 %% Load the files
-load ('RMFV.mat')
+load ('FinalRMFV_withoutExtreme_2066epoch.mat')
 test_name = 'uBlox';
 % load('Data\Combined_FeaData.mat')  % remember to change when necessary 2021.12.01
 % load('Data\Combined_TruthData.mat')
@@ -24,7 +24,9 @@ truth_data = RMFV(:, 1);
 %     if abs(R{idt}(1,2)) <= 0.05
 %         CorrToDelete = [CorrToDelete, idt];
 %     end
+%     R1 (idt, 1)  = abs(R{idt}(1,2));
 % end
+% 
 % pca_data(:,CorrToDelete) = [];
 % R(CorrToDelete) = []; 
 
@@ -36,8 +38,8 @@ for i=1:size(pca_data,2)
 end
 
 %% PCA
-[coeff,score,latent] = pca(pca_data, 'numComponent', size(pca_data,2));  %%
-
+% [coeff,score,latent] = pca(pca_data, 'numComponent', size(pca_data,2));  %%
+[coeff,score,latent] = pca(pca_data, 'numComponent', size(pca_data,2));
 % %% Add class to the labels (Need to confirm after processing all the data)
 % for idx = 1: size(truth_data(:,1),1)
 %     if truth_data(idx,1) < 12 && truth_data(idx,1) >= 0
@@ -55,7 +57,7 @@ end
 
 if whetherToPlot == 1
     p = scatter3(score(:,1),score(:,2),score(:,3),10,truth_data(:,1),'filled');
-%     p = scatter3(pca_data(:,5),pca_data(:,6),pca_data(:,8),10,truth_data(:,1),'filled');
+%     p = scatter3(pca_data(:,1),pca_data(:,7),pca_data(:,8),10,truth_data(:,1),'filled');
     xlabel('PCA1');
     ylabel('PCA2');
     zlabel('PCA3');
@@ -67,7 +69,7 @@ if whetherToPlot == 1
 %     xticks([-4 -3 -2 -1 0 1 2 3 4]);
 %     yticks([-5 -4 -3 -2 -1 0 1 2 3 4 5]);
 %     zticks([-4 -3 -2 -1 0 1 2 3 4 5 6]);
-    caxis([0 25]); % set the limit of colorbar 
+    caxis([0 30]); % set the limit of colorbar 
     rPCA1 = [min(score(:,1)), max(score(:,1))];
     rPCA2 = [min(score(:,2)), max(score(:,2))];
     rPCA3 = [min(score(:,3)), max(score(:,3))];
@@ -83,9 +85,9 @@ if whetherToCSV  == 1
         errordlg('File creation failed','Error');
     end
 
-    fprintf(fid_out,'Label,PCA1,PCA2,PCA3,PCA4,PCA5,PCA6,PCA7,PCA8,PCA9, PCA10\n');   %%PCA1,2,3: may change to other size
+    fprintf(fid_out,'Label,PCA1,PCA2,PCA3,PCA4,PCA5,PCA6,PCA7\n');   %%PCA1,2,3: may change to other size
     for i=1:size(truth_data,1)
-        fprintf(fid_out,'%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d\n',truth_data(i,1),score(i,1),score(i,2),score(i,3),score(i,4),score(i,5),score(i,6),score(i,7),score(i,8),score(i,9),score(i,10)); %%
+        fprintf(fid_out,'%d,%d,%d,%d,%d,%d,%d,%d\n',truth_data(i,1),score(i,1),score(i,2),score(i,3),score(i,4),score(i,5),score(i,6),score(i,7)); %%
     end
     
     fclose(fid_out);

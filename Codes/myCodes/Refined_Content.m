@@ -1,4 +1,5 @@
-clear Refined_data Truth_value temp_refined R pca_data RMFV
+clear Refined_data Truth_value temp_refined R pca_data RMFV 
+clear ExtremeToDelete ExtremeToDeleteEpoInd ExtremeToDeleteFeaInd
 %%
 % Co-drafted by Zhengdao LI, Pin Hsun LEE
 % updated on 17/12/2021
@@ -22,12 +23,14 @@ for idt = 1: size(GNSS_data,1)  %number of epoches
     Refined_data {idt,8} = std(GNSS_data{idt,9}(:,4)); % std C/N0 #
     
     Refined_data {idt,9} = mean(GNSS_data{idt,9}(:,9)); % Pr residual RSS_e #
-    Refined_data {idt,10} = mean(GNSS_data{idt,9}(:,6)); % mean Pr residual #
-    Refined_data {idt,11} = std(GNSS_data{idt,9}(:,6)); % std Pr residual #
+   
+%     ToCheck = GNSS_data{idt,9}(:,6);
+    Refined_data {idt,10} = mean(abs(GNSS_data{idt,9}(:,6))); % mean Pr residual #
+    Refined_data {idt,11} = std(abs(GNSS_data{idt,9}(:,6))); % std Pr residual #
     
     if size(Pr_rate{idt,1},2)~=0
-        Refined_data {idt,12} = mean (Pr_rate{idt,1}(:,3));   % mean Pr rate consistency #
-        Refined_data {idt,13} = std(Pr_rate{idt,1}(:,3));       %variance Pr rate consistency #
+        Refined_data {idt,12} = mean (abs(GNSS_data{idt,9}(:,7)));   % mean Pr rate consistency #
+        Refined_data {idt,13} = std(abs(GNSS_data{idt,9}(:,7)));       %std Pr rate consistency #
     else
         Refined_data {idt,12} = 0;
         Refined_data {idt,13} = 0;
@@ -51,24 +54,31 @@ Refined_data (:,3) = [];
 
 % extreme number of total SV: no data !!!!
 %% Further process 2 (delete the epochs with extreme value)
-Refined_data = cell2mat (Refined_data );
-ExtremeToDelete = [];
+Refined_data = cell2mat (Refined_data);
+ExtremeToDeleteFeaInd = [];
+ExtremeToDeleteEpoInd = [];
 for i = 2: size (Refined_data,2)
+%     if i == 3  % delete the vertial errors already
+%         continue;
+%     end
 	sigma = std (Refined_data (:,i));
     ave = mean(Refined_data (:,i));
     for j = 1: size (Refined_data,1)
-        if Refined_data (j,i) > (ave+ 3*sigma) || Refined_data (j,i) < (ave - 3*sigma)
-            ExtremeToDelete = [ExtremeToDelete, j];
+        if Refined_data (j,i) > (ave+ 4*sigma) || Refined_data (j,i) < (ave - 4*sigma)
+            ExtremeToDeleteFeaInd = [ExtremeToDeleteFeaInd, i] ; % i: Feature index
+            ExtremeToDeleteEpoInd = [ExtremeToDeleteEpoInd, j] ; % j: Epoch index
         end
     end
 end
-ExtremeToDelete = unique(ExtremeToDelete);
-Refined_data(ExtremeToDelete , :) = [];
+ExtremeToDelete = [ExtremeToDeleteFeaInd; ExtremeToDeleteEpoInd]';
+
+ExtremeToDeleteEpoInd = unique(ExtremeToDeleteEpoInd);
+Refined_data(ExtremeToDeleteEpoInd, :) = [];
 %% Further Process 3 (obtain the truth value table)
 % RMFV (:,1) = sqrt(cell2mat(Refined_data (:,3)).^2 + cell2mat(Refined_data (:,4)).^2 ); % truth value for positioing error
 RMFV (:,1) = sqrt(Refined_data (:,3).^2 ); % truth value for positioing error (EPH)
 temp_refined = Refined_data;
-temp_refined(:,3)=[];
+temp_refined(:,3) = [];
 
 
 

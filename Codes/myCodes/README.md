@@ -1,3 +1,6 @@
+# Codes have been updated on 2021.12.23 !!: 
+The extreme values are deleted via the 4 sigma check
+
 # Codes have been updated on 2021.12.19 !!: 
 only a RMFV as the generate results
 

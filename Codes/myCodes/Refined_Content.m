@@ -8,7 +8,7 @@ clear ExtremeToDelete ExtremeToDeleteEpoInd ExtremeToDeleteFeaInd
 % Refined_data_FinalV: contains all the feature values
 % Refined_data: contains both features and truth values before refinement
 
-whetherToPlot = 0;
+whetherToPlot = 1;
 %% Extract the data
 for idt = 1: size(GNSS_data,1)  %number of epoches
     Refined_data {idt,1} = GNSS_data{idt,1};   %index of epoch
@@ -105,91 +105,101 @@ if whetherToPlot == 1
     %% First Plot 
     figure;
     subplot(3,1,1)
-    y0 = cell2mat(Refined_data (:,2));
+    y0 = Refined_data (:,2);
     plot(y0,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y0)])
-    ylabel('nSat/total nSat') 
-    %%
+    ylabel({'Feature 1:'; 'nSat/total nSat'}) 
+%     %%
+%     subplot(3,1,2)
+%     y1 = cell2mat(Refined_data (:,3));
+%     plot(y1,'b')
+%     xlim([0 1.2*size(Refined_data,1)])
+%     ylim([0 1.2*max(y1)])
+%     ylabel('EPV') 
+%     %%
+%     subplot(3,1,3)
+%     y2 = cell2mat(Refined_data (:,4));
+%     plot(y2,'b')
+%     xlim([0 1.2*size(Refined_data,1)])
+%     ylim([0 1.2*max(y2)])
+%     ylabel('EPH') 
+
+%     figure; 
     subplot(3,1,2)
-    y1 = cell2mat(Refined_data (:,3));
-    plot(y1,'b')
+    y3 = Refined_data (:,4);
+    plot(y3,'b')
     xlim([0 1.2*size(Refined_data,1)])
-    ylim([0 1.2*max(y1)])
-    ylabel('EPV') 
+    ylim([0 1.2*max(y3)])
+    ylabel({'Feature 2: Mean';'of elevation angle'}) 
     %%
     subplot(3,1,3)
-    y2 = cell2mat(Refined_data (:,4));
+    y4 = Refined_data (:,5);
+    plot(y4,'b')
+    xlim([0 1.2*size(Refined_data,1)])
+    ylim([0 1.2*max(y4)])
+    
+    ylabel({'Feature 3: Standard ';'deviation of elevation angle'}) 
+    %% Last Plot
+    figure;
+    y2 = Refined_data (:,3);
     plot(y2,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y2)])
-    ylabel('EPH') 
+    ylabel('EPH (m)') 
     %% Second Plot
-    figure; 
-    subplot(3,1,1)
-    y3 = cell2mat(Refined_data (:,5));
-    plot(y3,'b')
-    xlim([0 1.2*size(Refined_data,1)])
-    ylim([0 1.2*max(y3)])
-    ylabel('mean Elevation Angle') 
-    %%
-    subplot(3,1,2)
-    y4 = cell2mat(Refined_data (:,6));
-    plot(y4,'b')
-    xlim([0 1.2*size(Refined_data,1)])
-    ylim([0 1.2*max(y4)])
-    ylabel('std Elevation Angle') 
-    %%
-    subplot(3,1,3)
-    y5 = cell2mat(Refined_data (:,7));
-    plot(y5,'b')
-    xlim([0 1.2*size(Refined_data,1)])
-    ylim([0 1.2*max(y5)])
-    ylabel('mean C/N0') 
-    %% Third Plot
     figure;
     subplot(3,1,1)
-    y3 = cell2mat(Refined_data (:,8));
-    plot(y3,'b')
-    xlim([0 1.2*size(Refined_data,1)])
-    ylim([0 1.2*max(y3)])
-    ylabel('std C/N0') 
-    %%
-    subplot(3,1,2)
-    y4 = cell2mat(Refined_data (:,9));
-    plot(y4,'b')
-    xlim([0 1.2*size(Refined_data,1)])
-    ylim([0 1.2*max(y4)])
-    ylabel('Pr residual RSS_e') 
-    %%
-    subplot(3,1,3)
-    y5 = cell2mat(Refined_data (:,10));
+    y5 = Refined_data (:,6);
     plot(y5,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y5)])
-    ylabel('mean Pr residual') 
+    ylabel({'Feature 4: Mean';' of C/N0'}) 
+    %% 
+    subplot(3,1,2)
+    y3 = Refined_data (:,7);
+    plot(y3,'b')
+    xlim([0 1.2*size(Refined_data,1)])
+    ylim([0 1.2*max(y3)])
+    ylabel({'Feature 5: Standard';' deviation of';'C/N0'}) 
+    %%
+    subplot(3,1,3)
+    y4 = Refined_data (:,8);
+    plot(y4,'b')
+    xlim([0 1.2*size(Refined_data,1)])
+    ylim([0 1.2*max(y4)])
+    ylabel({'Feature 8: Standard';' deviation of RSS ';'Pseudo-range residual'}) 
+    
     %% Fourth Plot
     figure;
-    subplot(3,1,1)
-    y3 = cell2mat(Refined_data (:,11));
+    subplot(4,1,1)
+    y5 = Refined_data (:,9);
+    plot(y5,'b')
+    xlim([0 1.2*size(Refined_data,1)])
+    ylim([0 1.2*max(y5)])
+    ylabel({'Feature 6: Mean';' of Pr residual'}) 
+    %%
+    subplot(4,1,2)
+    y3 = Refined_data (:,10);
     plot(y3,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y3)])
-    ylabel('std Pr residual') 
+    ylabel({'Feature 7: Standard ';'deviation of';'Pseudo-range residual'}) 
+
     %%
-    subplot(3,1,2)
-    y3 = cell2mat(Refined_data (:,12));
+    subplot(4,1,3)
+    y3 = Refined_data (:,11);
     plot(y3,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y3)])
-    ylabel('mean consistency checking') 
+    ylabel({'Feature 9: Mean of';'consistency checking'}) 
     %%
-    subplot(3,1,3)
-    y4 = cell2mat(Refined_data (:,13));
+    subplot(4,1,4)
+    y4 = Refined_data (:,12);
     plot(y4,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y4)])
-    ylabel('std consistency checking') 
+    ylabel({'Feature 10: Standard ';'deviation of';'consistency checking'}) 
 
     %%
     xlabel('Epoch') 

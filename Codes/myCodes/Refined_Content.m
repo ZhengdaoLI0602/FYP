@@ -109,7 +109,7 @@ if whetherToPlot == 1
     plot(y0,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y0)])
-    ylabel({'Feature 1:'; 'nSat/total nSat'}) 
+    ylabel({'Feature 1:'; 'nSat / total nSat'}) 
 %     %%
 %     subplot(3,1,2)
 %     y1 = cell2mat(Refined_data (:,3));
@@ -131,7 +131,7 @@ if whetherToPlot == 1
     plot(y3,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y3)])
-    ylabel({'Feature 2: Mean';'of elevation angle'}) 
+    ylabel({'Feature 2: Mean';'of EA (deg)'}) 
     %%
     subplot(3,1,3)
     y4 = Refined_data (:,5);
@@ -139,7 +139,7 @@ if whetherToPlot == 1
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y4)])
     
-    ylabel({'Feature 3: Standard ';'deviation of elevation angle'}) 
+    ylabel({'Feature 3: Std of ';'EA (deg)'}) 
     %% Last Plot
     figure;
     y2 = Refined_data (:,3);
@@ -154,21 +154,21 @@ if whetherToPlot == 1
     plot(y5,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y5)])
-    ylabel({'Feature 4: Mean';' of C/N0'}) 
+    ylabel({'Feature 4: Mean';' of C/N0 (dB-Hz)'}) 
     %% 
     subplot(3,1,2)
     y3 = Refined_data (:,7);
     plot(y3,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y3)])
-    ylabel({'Feature 5: Standard';' deviation of';'C/N0'}) 
+    ylabel({'Feature 5: Std of';'C/N0  (dB-Hz)'}) 
     %%
     subplot(3,1,3)
     y4 = Refined_data (:,8);
     plot(y4,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y4)])
-    ylabel({'Feature 8: Standard';' deviation of RSS ';'Pseudo-range residual'}) 
+    ylabel({'Feature 8: Std of RSS Pr';' residual  (m)'}) 
     
     %% Fourth Plot
     figure;
@@ -177,14 +177,14 @@ if whetherToPlot == 1
     plot(y5,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y5)])
-    ylabel({'Feature 6: Mean';' of Pr residual'}) 
+    ylabel({'Feature 6: Mean';' of Pr residual (m)'}) 
     %%
     subplot(4,1,2)
     y3 = Refined_data (:,10);
     plot(y3,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y3)])
-    ylabel({'Feature 7: Standard ';'deviation of';'Pseudo-range residual'}) 
+    ylabel({'Feature 7: Std of';'Pr residual (m)'}) 
 
     %%
     subplot(4,1,3)
@@ -192,14 +192,14 @@ if whetherToPlot == 1
     plot(y3,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y3)])
-    ylabel({'Feature 9: Mean of';'consistency checking'}) 
+    ylabel({'Feature 9: Mean of';'consistency';' checking (m)'}) 
     %%
     subplot(4,1,4)
     y4 = Refined_data (:,12);
     plot(y4,'b')
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y4)])
-    ylabel({'Feature 10: Standard ';'deviation of';'consistency checking'}) 
+    ylabel({'Feature 10: Std of';' consistency ';' checking (m)'}) 
 
     %%
     xlabel('Epoch') 

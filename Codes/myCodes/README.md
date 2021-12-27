@@ -1,3 +1,6 @@
+# Codes have been updated on 2021.12.26 !!: 
+Enable the functions to plot features throughout epochs
+
 # Codes have been updated on 2021.12.23 !!: 
 The extreme values are deleted via the 4 sigma check
 

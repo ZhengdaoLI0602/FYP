@@ -1,3 +1,6 @@
+# Codes have been updated on 2022.1.2 !!: 
+The code package after interim report has been updated, in the release
+
 # Codes have been updated on 2021.12.26 !!: 
 Enable the functions to plot features throughout epochs
 

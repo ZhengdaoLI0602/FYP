@@ -36,4 +36,4 @@
   |---|---|---|
   |Ublox|||
   |Smartphone (Xiaomi8)|||
-  |Novatel|Content Cell|||
+  |Novatel|||

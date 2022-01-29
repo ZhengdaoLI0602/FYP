@@ -4,11 +4,12 @@
 - [Geodetic HK](https://www.geodetic.gov.hk/en/rinex/downv.aspx)
 - [OneDrive FYP_ALL](https://connectpolyu-my.sharepoint.com/:f:/r/personal/18081447d_connect_polyu_hk/Documents/FYP_ALL?csf=1&web=1&e=xfShFL)
 - Codes
-  ||Labelling results|Tajectoy on Google Map|
-  |---|---|---|
-  |Ublox|Content Cell|Content Cell|
-  |Smartphone (Xiaomi8)|Content Cell|Content Cell|
-  |Novatel|Content Cell|Content Cell|
+  ||Contents|
+  |---|---|
+  |Weighted Least Square|[V1](https://github.com/ZhengdaoLI0602/FYP/releases/tag/c_code_wls)|
+  |Labelling code|Content Cell|
+  |Smartphone (Xiaomi8)|Content Cell|
+  |Novatel|Content Cell|
 
 ## 1. UrbanNav dataset:
 - [GitHub link](https://github.com/IPNL-POLYU/UrbanNavDataset) 

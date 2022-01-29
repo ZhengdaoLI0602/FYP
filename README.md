@@ -1,4 +1,7 @@
 # FYP
+## 0. Useful links:
+- [GPST Calculator](https://www.labsat.co.uk/index.php/en/gps-time-calculator)
+- [Geodetic HK](https://www.geodetic.gov.hk/en/rinex/downv.aspx)
 
 ## 1. UrbanNav dataset:
 - [GitHub link](https://github.com/IPNL-POLYU/UrbanNavDataset) 

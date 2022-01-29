@@ -8,8 +8,8 @@
   |---|---|
   |Weighted Least Square|[V1](https://github.com/ZhengdaoLI0602/FYP/releases/tag/c_code_wls)|
   |Labelling code|[V3](https://github.com/ZhengdaoLI0602/FYP/releases/tag/labelling_v3) , [V2](https://github.com/ZhengdaoLI0602/FYP/releases/tag/labelling_v2) , [V1](https://github.com/ZhengdaoLI0602/FYP/releases/tag/Labelling_V1)|
-  |Loosely coupled Kalman Filter| , [V1](https://github.com/ZhengdaoLI0602/FYP/releases/tag/LCKF)|
-  |Novatel|Content Cell|
+  |Loosely coupled Kalman Filter|[V3](https://github.com/ZhengdaoLI0602/FYP/releases/tag/LCKF_V3) , [V2](https://github.com/ZhengdaoLI0602/FYP/releases/tag/LCKF_Version2) , [V1](https://github.com/ZhengdaoLI0602/FYP/releases/tag/LCKF)|
+  |FGO|[V1](https://github.com/ZhengdaoLI0602/FYP/releases/tag/FGO)|
 
 ## 1. UrbanNav dataset:
 - [GitHub link](https://github.com/IPNL-POLYU/UrbanNavDataset) 

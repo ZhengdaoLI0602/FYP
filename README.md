@@ -7,8 +7,8 @@
   ||Contents|
   |---|---|
   |Weighted Least Square|[V1](https://github.com/ZhengdaoLI0602/FYP/releases/tag/c_code_wls)|
-  |Labelling code|Content Cell|
-  |Smartphone (Xiaomi8)|Content Cell|
+  |Labelling code|[V3](https://github.com/ZhengdaoLI0602/FYP/releases/tag/labelling_v3) , [V2](https://github.com/ZhengdaoLI0602/FYP/releases/tag/labelling_v2) , [V1](https://github.com/ZhengdaoLI0602/FYP/releases/tag/Labelling_V1)|
+  |Loosely coupled Kalman Filter| , [V1](https://github.com/ZhengdaoLI0602/FYP/releases/tag/LCKF)|
   |Novatel|Content Cell|
 
 ## 1. UrbanNav dataset:

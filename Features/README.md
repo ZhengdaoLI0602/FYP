@@ -1,4 +1,5 @@
 |Index|Feature|
+|---|---|
 |1| (nbr of received SV/ nbr of total SV) |
 |2| mean elevation angles|
 |3| std elevation angles|

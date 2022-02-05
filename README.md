@@ -23,18 +23,13 @@
 ## 1. UrbanNav dataset:
 - [GitHub link](https://github.com/IPNL-POLYU/UrbanNavDataset) 
 - Labelling results
-  |GNSS receiver|Labelling results in TST|Trajectoy on Google Map|
-  |---|---|---|
-  |Ublox|||
-  |Smartphone (Xiaomi8)|||
-  |Novatel|||
+  |GNSS receiver|TST|WP|Trajectory Map|
+  |---|---|---|---|
+  |Ublox||||
+  |Smartphone (Xiaomi8)||||
+  |Novatel||||
   
-  |GNSS receiver|Labelling results in WP|Trajectoy on Google Map|
-  |---|---|---|
-  |Ublox|||
-  |Smartphone (Xiaomi8)|||
-  |Novatel|[MAT](https://connectpolyu-my.sharepoint.com/:u:/r/personal/18081447d_connect_polyu_hk/Documents/FYP_ALL/GitHub%20Materials/TST/novatel/WP_novatel.mat?csf=1&web=1&e=8Ru7wJ)||
-  
+
 ## 2. New dataset (KLT):
 - Links:[Rinex File](https://www.dropbox.com/sh/7iag71h9sfn8f01/AAAlzaqvg50z1axRW_LzRgLaa?dl=0), [Ground Truth](https://www.dropbox.com/sh/8rhqsumsgfjrzzt/AACSaSfBrgEWHePB1RBxDUpXa?dl=0), [IMU data](https://www.dropbox.com/s/oan55icug5y9bw3/1203imudata.csv?dl=0), [Skymask](https://www.dropbox.com/s/rynyv2k6dwdvu3m/KLB.csv?dl=0)
   

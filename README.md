@@ -40,8 +40,8 @@
 - Links:[Rinex File](https://www.dropbox.com/sh/7iag71h9sfn8f01/AAAlzaqvg50z1axRW_LzRgLaa?dl=0), [Ground Truth](https://www.dropbox.com/sh/8rhqsumsgfjrzzt/AACSaSfBrgEWHePB1RBxDUpXa?dl=0), [IMU data](https://www.dropbox.com/s/oan55icug5y9bw3/1203imudata.csv?dl=0), [Skymask](https://www.dropbox.com/s/rynyv2k6dwdvu3m/KLB.csv?dl=0)
   
 - Labelling results
-  |GNSS receiver|Labelling results|Trajectoy on Google Map|
-  |---|---|---|
-  |Ublox|||
-  |Smartphone (Xiaomi8)|||
-  |Novatel|||
+  |Results|Maps|
+  |---|---|
+  |[Ublox]|[Ublox]|
+  |[Smartphone (Xiaomi8)]|[Smartphone (Xiaomi8)]|
+  |[Novatel]|[Novatel]|

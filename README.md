@@ -23,11 +23,11 @@
 ## 1. UrbanNav dataset:
 - [GitHub link](https://github.com/IPNL-POLYU/UrbanNavDataset) 
 - Labelling results
-  |TST|WP|MK|Map|
-  |---|---|---|---|
-  |[Ublox](https://connectpolyu-my.sharepoint.com/:f:/r/personal/18081447d_connect_polyu_hk/Documents/FYP_ALL/GitHub/Labelling%20results/TST/ublox?csf=1&web=1&e=ZUDwR2)|[Ublox]|[Ublox]||
-  |[Xiaomi8](https://connectpolyu-my.sharepoint.com/:f:/r/personal/18081447d_connect_polyu_hk/Documents/FYP_ALL/GitHub/Labelling%20results/TST/xiaomi?csf=1&web=1&e=3pIfEz)|[Xiaomi8]|[Xiaomi8]||
-  |[Novatel](https://connectpolyu-my.sharepoint.com/:f:/r/personal/18081447d_connect_polyu_hk/Documents/FYP_ALL/GitHub/Labelling%20results/TST/novatel?csf=1&web=1&e=lyxOS8)|[Novatel]|[Novatel]||
+  |TST|WP|MK|
+  |---|---|---|
+  |[Ublox](https://connectpolyu-my.sharepoint.com/:f:/r/personal/18081447d_connect_polyu_hk/Documents/FYP_ALL/GitHub/Labelling%20results/TST/ublox?csf=1&web=1&e=ZUDwR2)|[Ublox](https://connectpolyu-my.sharepoint.com/:f:/r/personal/18081447d_connect_polyu_hk/Documents/FYP_ALL/GitHub/Labelling%20results/WP/ublox?csf=1&web=1&e=ZSKviO)|[Ublox]|
+  |[Xiaomi8](https://connectpolyu-my.sharepoint.com/:f:/r/personal/18081447d_connect_polyu_hk/Documents/FYP_ALL/GitHub/Labelling%20results/TST/xiaomi?csf=1&web=1&e=3pIfEz)|[Xiaomi8](https://connectpolyu-my.sharepoint.com/:f:/r/personal/18081447d_connect_polyu_hk/Documents/FYP_ALL/GitHub/Labelling%20results/WP/xiaomi?csf=1&web=1&e=nG12tH)|[Xiaomi8]|
+  |[Novatel](https://connectpolyu-my.sharepoint.com/:f:/r/personal/18081447d_connect_polyu_hk/Documents/FYP_ALL/GitHub/Labelling%20results/TST/novatel?csf=1&web=1&e=lyxOS8)|[Novatel](https://connectpolyu-my.sharepoint.com/:f:/r/personal/18081447d_connect_polyu_hk/Documents/FYP_ALL/GitHub/Labelling%20results/WP/novatel?csf=1&web=1&e=3P4Hho)|[Novatel]||
 
   
 

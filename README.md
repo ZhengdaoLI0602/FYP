@@ -43,5 +43,5 @@
   |Results|Maps|
   |---|---|
   |[Ublox]|[Ublox]|
-  |[Xiaomi8](https://connectpolyu-my.sharepoint.com/personal/18081447d_connect_polyu_hk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2F18081447d%5Fconnect%5Fpolyu%5Fhk%2FDocuments%2FFYP%5FALL%2FGitHub%2FLabelling%20results%2FKLT)|[Xiaomi8](https://connectpolyu-my.sharepoint.com/:i:/r/personal/18081447d_connect_polyu_hk/Documents/FYP_ALL/GitHub/Labelling%20results/KLT/klt_xiaomi_result.jpg?csf=1&web=1&e=hcJt3N)|
+  |[Xiaomi8](https://connectpolyu-my.sharepoint.com/:f:/r/personal/18081447d_connect_polyu_hk/Documents/FYP_ALL/GitHub/Labelling%20results/KLT/xiaomi?csf=1&web=1&e=fem4XS)|[Xiaomi8](https://connectpolyu-my.sharepoint.com/:i:/r/personal/18081447d_connect_polyu_hk/Documents/FYP_ALL/GitHub/Labelling%20results/KLT/klt_xiaomi_result.jpg?csf=1&web=1&e=hcJt3N)|
   |[Novatel](https://connectpolyu-my.sharepoint.com/personal/18081447d_connect_polyu_hk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2F18081447d%5Fconnect%5Fpolyu%5Fhk%2FDocuments%2FFYP%5FALL%2FGitHub%2FLabelling%20results%2FKLT)|[Novatel](https://connectpolyu-my.sharepoint.com/:i:/r/personal/18081447d_connect_polyu_hk/Documents/FYP_ALL/GitHub/Labelling%20results/KLT/KLT_Novatel.jpg?csf=1&web=1&e=IZBH5f)|

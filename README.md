@@ -38,7 +38,7 @@
 
 ## 2. New dataset (KLT):
 - Links:[Rinex File](https://www.dropbox.com/sh/7iag71h9sfn8f01/AAAlzaqvg50z1axRW_LzRgLaa?dl=0), [Ground Truth](https://www.dropbox.com/sh/8rhqsumsgfjrzzt/AACSaSfBrgEWHePB1RBxDUpXa?dl=0), [IMU data](https://www.dropbox.com/s/oan55icug5y9bw3/1203imudata.csv?dl=0), [Skymask](https://www.dropbox.com/s/rynyv2k6dwdvu3m/KLB.csv?dl=0)
-- [Package from Patrick](https://github.com/ZhengdaoLI0602/FYP/releases/tag/Labelling_v4) , (GH's Supplement)[https://github.com/ZhengdaoLI0602/FYP/releases/tag/KLT_Dataset_Supplement]
+- [Package from Patrick](https://github.com/ZhengdaoLI0602/FYP/releases/tag/Labelling_v4) , [GH's Supplement](https://github.com/ZhengdaoLI0602/FYP/releases/tag/KLT_Dataset_Supplement)
 - Results
   |Results|Maps|
   |---|---|

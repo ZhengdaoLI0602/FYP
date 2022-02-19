@@ -1,4 +1,4 @@
-%% WP data (input line 3, 16)
+%% WP data (input line 3, 16, 279)
 ToDelete=[];
 load('WP\xiaomi\WP_xiaomi');
 receiver_GNSS_data = GNSS_data;

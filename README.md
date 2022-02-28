@@ -19,6 +19,7 @@
   |Fuzzy Logic||
   |ML||
   |Feature Refinement||
+  |FGO||
   
 ## 1. UrbanNav dataset:
 - [GitHub link](https://github.com/IPNL-POLYU/UrbanNavDataset) 

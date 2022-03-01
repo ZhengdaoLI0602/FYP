@@ -56,3 +56,4 @@
 
 ## 3. FGO Results:
 - [INS estimation by Nancy](https://connectpolyu-my.sharepoint.com/personal/18081447d_connect_polyu_hk/_layouts/15/onedrive.aspx?csf=1&web=1&e=PZmXHk&cid=17f1415a%2D6dad%2D4cc1%2D8401%2De5830ce9a36d&id=%2Fpersonal%2F18081447d%5Fconnect%5Fpolyu%5Fhk%2FDocuments%2FFYP%5FALL%2FGitHub%2FINS&FolderCTID=0x0120004465C1649728174A96AAB6738BA8A0D8)
+- [INS estimation by Patrick](https://github.com/ZhengdaoLI0602/FYP/releases/tag/FGO_INS_by_Patrick)

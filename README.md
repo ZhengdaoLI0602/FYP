@@ -15,7 +15,7 @@
   ||Contents|
   |---|---|
   |Codes after Interim||
-  |PCA|[PCA](https://github.com/ZhengdaoLI0602/FYP/blob/Nancy/Codes/Results/Combined_Data.m)|
+  |PCA|[V1](https://github.com/ZhengdaoLI0602/FYP/blob/Nancy/Codes/Results/Combined_Data.m)|
   |Fuzzy Logic||
   |ML||
   |Feature Refinement|[V1](https://github.com/ZhengdaoLI0602/FYP/blob/main/Codes/myCodes/Refined_Content.m)|

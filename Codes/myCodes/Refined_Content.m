@@ -1,40 +1,63 @@
-clear Refined_data Truth_value temp_refined R pca_data RMFV 
-clear ExtremeToDelete ExtremeToDeleteEpoInd ExtremeToDeleteFeaInd
+% clear Refined_data Truth_value temp_refined R pca_data RMFV 
+% clear ExtremeToDelete ExtremeToDeleteEpoInd ExtremeToDeleteFeaInd
+clc;
+clear;
+close all;
+
 %%
 % Co-drafted by Zhengdao LI, Pin Hsun LEE
-% updated on 17/12/2021
+% updated on 02/05/2022
 %%
-
 % Refined_data_FinalV: contains all the feature values
 % Refined_data: contains both features and truth values before refinement
 
-whetherToPlot = 1;
+
+%%WHETHER TO SAVE THE REFINED CONTENTS================@1
+whetherToSave = 1;
+Dir1 = '../UrbanNav_IMU/';
+Dir2 = 'Deep_IMU/';
+Dir3 = 'ublox/';
+curFolder = [Dir1,Dir2,Dir3];
+SavedName = 'Refined_Content_WP_ublox.mat';
+
+%%WHETHER TO PLOT THE FEATURES=======================@2
+whetherToPlot = 0;
+
+%%LOAD THE LABELLING RESULTS==========================@3
+load([curFolder,'wp_ublox.mat']);
+
+
+
 %% Extract the data
 for idt = 1: size(GNSS_data,1)  %number of epoches
-    Refined_data {idt,1} = GNSS_data{idt,1};   %index of epoch
-    Refined_data {idt,2} = length(GNSS_data{idt,3})/length(GNSS_data{idt,6});  % number of SV/ total nbr SV #
-    Refined_data {idt,3} = sqrt(GNSS_data{idt,16}(3)^2); % EPV
-    Refined_data {idt,4} = sqrt(GNSS_data{idt,16}(1)^2  + GNSS_data{idt,16}(2)^2); %EPH
+    Refined_data {idt,1} = GNSS_data{idt,1};   %index of epoch (landmark)
+    Refined_data {idt,2} = length(GNSS_data{idt,3})/length(GNSS_data{idt,6});  % number of SV/ total nbr SV (Feature1)
+    Refined_data {idt,3} = sqrt(GNSS_data{idt,16}(3)^2); % EPV (landmark)
+    Refined_data {idt,4} = sqrt(GNSS_data{idt,16}(1)^2  + GNSS_data{idt,16}(2)^2); %EPH (landmark)
 
-    Refined_data {idt,5} = mean(GNSS_data{idt,4}); % mean elevation angle #
-    Refined_data {idt,6} = std(GNSS_data{idt,4}); % std elevation angle #
+    Refined_data {idt,5} = mean(GNSS_data{idt,4}); % mean elevation angle (Feature2)
+    Refined_data {idt,6} = std(GNSS_data{idt,4}); % std elevation angle (Feature3)
     
-    Refined_data {idt,7} = mean(GNSS_data{idt,9}(:,4)); % mean C/N0 #
-    Refined_data {idt,8} = std(GNSS_data{idt,9}(:,4)); % std C/N0 #
+    Refined_data {idt,7} = mean(GNSS_data{idt,9}(:,4)); % mean C/N0 (Feature4)
+    Refined_data {idt,8} = std(GNSS_data{idt,9}(:,4)); % std C/N0 (Feature5)
     
-    Refined_data {idt,9} = mean(GNSS_data{idt,9}(:,9)); % Pr residual RSS_e #
+    Refined_data {idt,9} = mean(GNSS_data{idt,9}(:,9)); % Pr residual RSS_e (Feature6)
    
 %     ToCheck = GNSS_data{idt,9}(:,6);
-    Refined_data {idt,10} = mean(abs(GNSS_data{idt,9}(:,6))); % mean Pr residual #
-    Refined_data {idt,11} = std(abs(GNSS_data{idt,9}(:,6))); % std Pr residual #
+    Refined_data {idt,10} = mean(abs(GNSS_data{idt,9}(:,6))); % mean Pr residual (Feature7)
+    Refined_data {idt,11} = std(abs(GNSS_data{idt,9}(:,6))); % std Pr residual (Feature8)
     
     if size(Pr_rate{idt,1},2)~=0
-        Refined_data {idt,12} = mean (abs(GNSS_data{idt,9}(:,7)));   % mean Pr rate consistency #
-        Refined_data {idt,13} = std(abs(GNSS_data{idt,9}(:,7)));       %std Pr rate consistency #
+        Refined_data {idt,12} = mean (abs(GNSS_data{idt,9}(:,7)));   % mean Pr rate consistency (Feature9)
+        Refined_data {idt,13} = std(abs(GNSS_data{idt,9}(:,7)));       %std Pr rate consistency (Feature10)
     else
         Refined_data {idt,12} = 0;
         Refined_data {idt,13} = 0;
     end
+    
+    % added on 04.25
+    Refined_data {idt,14} = GNSS_data{idt,18}(1);  % HDOP
+    Refined_data {idt,15} = GNSS_data{idt,18}(2);  % VDOP
 end
 
 %% Further Process 1 (delete the invalid values in feature matrix)
@@ -55,25 +78,34 @@ Refined_data (:,3) = [];
 % extreme number of total SV: no data !!!!
 %% Further process 2 (delete the epochs with extreme value)
 Refined_data = cell2mat (Refined_data);
-ExtremeToDeleteFeaInd = [];
-ExtremeToDeleteEpoInd = [];
+% ExtremeToDeleteFeaInd = [];
+ExtremeToDeleteEpoInd1 = [];
+ExtremeToDeleteEpoInd2 = [];
+
+% 2.1. Delete NaN value, to prepare ave,std calculation
 for i = 2: size (Refined_data,2)
-%     if i == 3  % delete the vertial errors already
-%         continue;
-%     end
-	sigma = std (Refined_data (:,i));
-    ave = mean(Refined_data (:,i));
-    for j = 1: size (Refined_data,1)
-        if Refined_data (j,i) > (ave+ 4*sigma) || Refined_data (j,i) < (ave - 4*sigma)
-            ExtremeToDeleteFeaInd = [ExtremeToDeleteFeaInd, i] ; % i: Feature index
-            ExtremeToDeleteEpoInd = [ExtremeToDeleteEpoInd, j] ; % j: Epoch index
+    for j = 1: size (Refined_data,1)  % Delete any NaN, to calculate ave and sigma
+        if isnan(Refined_data (j,i)) == 1
+            ExtremeToDeleteEpoInd1 = [ExtremeToDeleteEpoInd1, j] ; % j: Epoch index
         end
     end
 end
-ExtremeToDelete = [ExtremeToDeleteFeaInd; ExtremeToDeleteEpoInd]';
+ExtremeToDeleteEpoInd1 = unique(ExtremeToDeleteEpoInd1);
+Refined_data(ExtremeToDeleteEpoInd1, :) = [];
 
-ExtremeToDeleteEpoInd = unique(ExtremeToDeleteEpoInd);
-Refined_data(ExtremeToDeleteEpoInd, :) = [];
+% 2.2. Select extreme based on normal distribution
+for i = 2: size (Refined_data,2)
+	sigma = std (Refined_data (:,i));
+    ave = mean(Refined_data (:,i));
+
+    for j = 1: size (Refined_data,1)
+        if Refined_data (j,i) > (ave+ 3*sigma) || Refined_data (j,i) < (ave - 3*sigma)
+            ExtremeToDeleteEpoInd2 = [ExtremeToDeleteEpoInd2, j] ; % j: Epoch index
+        end
+    end
+end
+ExtremeToDeleteEpoInd2 = unique(ExtremeToDeleteEpoInd2);
+Refined_data(ExtremeToDeleteEpoInd2, :) = [];
 %% Further Process 3 (obtain the truth value table)
 % RMFV (:,1) = sqrt(cell2mat(Refined_data (:,3)).^2 + cell2mat(Refined_data (:,4)).^2 ); % truth value for positioing error
 RMFV (:,1) = sqrt(Refined_data (:,3).^2 ); % truth value for positioing error (EPH)
@@ -87,6 +119,7 @@ temp_refined(:,3) = [];
 % Col 1: EPH
 % Col 2: epochs
 % Col 3 -12: Feature No.1-10
+% Col 13-14: HDOP,VDOP
 
 for i = 1: size(temp_refined,2)
     RMFV (:, i+1) = temp_refined(:,i);
@@ -101,6 +134,14 @@ end
 RMFV (RMToDelete,:) = [];
 
 
+
+%% Saved location
+if whetherToSave == 1
+    save([curFolder,SavedName],'RMFV','Refined_data');
+end
+save(['.\LocalCopy\',SavedName],'RMFV','Refined_data');
+
+%% Plotting out the features
 if whetherToPlot == 1
     %% First Plot 
     figure;
@@ -110,22 +151,7 @@ if whetherToPlot == 1
     xlim([0 1.2*size(Refined_data,1)])
     ylim([0 1.2*max(y0)])
     ylabel({'Feature 1:'; 'nSat / total nSat'}) 
-%     %%
-%     subplot(3,1,2)
-%     y1 = cell2mat(Refined_data (:,3));
-%     plot(y1,'b')
-%     xlim([0 1.2*size(Refined_data,1)])
-%     ylim([0 1.2*max(y1)])
-%     ylabel('EPV') 
-%     %%
-%     subplot(3,1,3)
-%     y2 = cell2mat(Refined_data (:,4));
-%     plot(y2,'b')
-%     xlim([0 1.2*size(Refined_data,1)])
-%     ylim([0 1.2*max(y2)])
-%     ylabel('EPH') 
-
-%     figure; 
+ 
     subplot(3,1,2)
     y3 = Refined_data (:,4);
     plot(y3,'b')
@@ -205,4 +231,6 @@ if whetherToPlot == 1
     xlabel('Epoch') 
 end
 
+%% Complete
+disp('Refinement finished !!');
 
